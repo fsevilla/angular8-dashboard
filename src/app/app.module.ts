@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -18,7 +19,7 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './main/home/home.component';
 import { LoginComponent } from './main/login/login.component';
-import { SingupComponent } from './main/singup/singup.component';
+import { SignupComponent } from './main/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { SingupComponent } from './main/singup/singup.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    SingupComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,9 @@ import { SingupComponent } from './main/singup/singup.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

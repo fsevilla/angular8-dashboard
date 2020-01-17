@@ -1,5 +1,5 @@
 <mat-drawer-container class="sidebar">
-    <mat-drawer mode="side" opened>
+    <mat-drawer mode="side" opened *ngIf="isLoggedIn">
         <mat-list>
             <h3 mat-subheader>Menu</h3>
             <mat-list-item *ngFor="let item of menuOptions">

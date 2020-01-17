@@ -9,6 +9,8 @@ import { MenuItem } from './menu-item';
 })
 export class SidebarComponent implements OnInit {
 
+  isLoggedIn:boolean = false;
+
   menuOptions:Array<MenuItem> = [
     { 
       icon: 'home',

@@ -1,0 +1,36 @@
+
+<mat-card>
+    <div class="example-container">
+        <form [formGroup]="form" (submit)="signup()">
+
+            <mat-form-field>
+                <input matInput placeholder="Name" formControlName="name" required>
+                <mat-error *ngIf="hasError('name', 'required')">El nombre es requerido</mat-error>
+                <mat-error *ngIf="hasError('name', 'fullname')">Se necesita un nombre y apellido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="email" matInput placeholder="Email" formControlName="email" required>
+                <mat-error *ngIf="hasError('email', 'required')">El campo es requerido</mat-error>
+                <mat-error *ngIf="hasError('email', 'email')">Se necesita un correo valido</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <input matInput placeholder="Password" formControlName="password" required>
+                <mat-error>El password es requerido</mat-error>
+                <mat-hint>El password debe tener minimo 6 caracteres</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Confirmar Password" formControlName="confirmation" required>
+                <mat-error>El password es requerido</mat-error>
+                <mat-hint>El password debe tener minimo 6 caracteres</mat-hint>
+            </mat-form-field>
+
+            <mat-error *ngIf="form.errors && form.errors.mismatch">Los passwords no coinciden</mat-error>
+
+            <button mat-raised-button color="primary">Sign up</button>
+        </form>
+
+    </div>
+</mat-card>
