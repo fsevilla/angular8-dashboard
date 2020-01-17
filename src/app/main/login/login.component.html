@@ -1,19 +1,21 @@
-
 <mat-card>
     <div class="example-container">
         <form [formGroup]="form" (submit)="login()">
             <mat-form-field>
                 <input type="email" matInput placeholder="Email" formControlName="email" required>
                 <mat-error *ngIf="hasError('email', 'required')">El campo es requerido</mat-error>
-                <mat-error *ngIf="hasError('email', 'email')">Se necesita un correo valido</mat-error>
+            <mat-error *ngIf="hasError('email', 'email')">Se necesita un correo valido</mat-error>
             </mat-form-field>
         
             <mat-form-field>
-                <input matInput placeholder="Password" formControlName="password" required>
+                <input matInput type="password" placeholder="Password" formControlName="password" required>
                 <mat-error>El password es requerido</mat-error>
             </mat-form-field>
 
-            <button mat-raised-button color="primary">Primary</button>
+            <mat-error *ngIf="incorrectCredentials">Credenciales incorrectas</mat-error>
+
+            <button mat-raised-button color="primary">Login</button>
+            <a routerLink="/signup">No tienes cuenta? Registrate aqui</a>
         </form>
     </div>
 </mat-card>

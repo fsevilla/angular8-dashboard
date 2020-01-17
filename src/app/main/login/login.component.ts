@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { LoginService } from './login.service';
+import { AuthService } from './../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +14,14 @@ export class LoginComponent implements OnInit {
 
   form:FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { }
+  incorrectCredentials:boolean;
+
+  constructor(
+    private formBuilder:FormBuilder,
+    private router:Router,
+    private loginService:LoginService,
+    private authService:AuthService
+  ) { }
 
   ngOnInit() {
 
@@ -35,6 +46,18 @@ export class LoginComponent implements OnInit {
     console.log(this.form);
     if(this.form.valid) {
       console.log('Enviar datos', this.form.getRawValue());
+      const credentials = this.form.getRawValue();
+      this.loginService.login(credentials)
+        .then(response => {
+          console.log('Success: ', response);
+          this.authService.saveToken(response);
+          this.router.navigate(['/']);
+        })
+        .catch(err => {
+          console.log('Credenciales incorrectas');
+          this.incorrectCredentials = true;
+        });
+
     } else {
       console.log('Faltan datos');
     }

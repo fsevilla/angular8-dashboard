@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MenuItem } from './menu-item';
+import { AuthService } from './../../shared/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,9 +25,10 @@ export class SidebarComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
 }
