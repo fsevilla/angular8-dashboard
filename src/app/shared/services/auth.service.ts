@@ -25,11 +25,25 @@ export class AuthService {
 
   clearToken() {
     localStorage.removeItem(this.item);
+    this.clearUser();
     this.loginObservable.next(false);
   }
 
   getToken() {
     return localStorage.getItem(this.item) || '';
+  }
+
+  saveUser(user) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getUser() {
+    const userItem = localStorage.getItem('user');
+    return userItem ? JSON.parse(userItem) : {};
+  }
+
+  clearUser() {
+    localStorage.removeItem('user');
   }
 
 }

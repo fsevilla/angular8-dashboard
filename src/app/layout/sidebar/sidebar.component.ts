@@ -21,7 +21,8 @@ export class SidebarComponent implements OnInit {
     {
       icon: 'people_alt',
       label: 'Users',
-      path: 'users'
+      path: 'users',
+      role: 'admin'
     },
     {
       icon: 'video_library',

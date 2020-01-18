@@ -7,6 +7,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth.guard';
 import { MoviesComponent } from './main/movies/movies.component';
 import { UsersComponent } from './main/users/users.component';
+import { UsersListComponent } from './main/users/users-list/users-list.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [UnauthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [UnauthGuard] },
   { path: 'movies', component: MoviesComponent, canActivate: [AuthGuard] },
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard], children: [
+    { path: '', component: UsersListComponent }
+  ] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

@@ -49,12 +49,15 @@ export class LoginComponent implements OnInit {
       const credentials = this.form.getRawValue();
       this.loginService.login(credentials)
         .then(response => {
-          console.log('Success: ', response);
           this.authService.saveToken(response);
+          return this.loginService.me();
+        })
+        .then(response => {
+          this.authService.saveUser(response);
           this.router.navigate(['/']);
         })
         .catch(err => {
-          console.log('Credenciales incorrectas');
+          this.authService.clearToken();
           this.incorrectCredentials = true;
         });
 

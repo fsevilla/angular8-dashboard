@@ -31,6 +31,8 @@ import { MoviesComponent } from './main/movies/movies.component';
 import { MovieFormComponent } from './main/movies/movie-form/movie-form.component';
 import { UsersComponent } from './main/users/users.component';
 import { DataListComponent } from './shared/components/data-list/data-list.component';
+import { UsersListComponent } from './main/users/users-list/users-list.component';
+import { ClickeableDirective } from './shared/directives/clickeable.directive';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { DataListComponent } from './shared/components/data-list/data-list.compo
     MoviesComponent,
     MovieFormComponent,
     UsersComponent,
-    DataListComponent
+    DataListComponent,
+    UsersListComponent,
+    ClickeableDirective
   ],
   imports: [
     BrowserModule,
