@@ -12,10 +12,12 @@ export class UsersComponent implements OnInit {
   users:any[];
 
   config:any = {
+    title: 'Usuarios',
     columns: [
       { 
         title: 'Nombre',
-        field: 'name'
+        field: 'name',
+        sortable: true
       },
       {
         title: 'Correo',
@@ -28,11 +30,11 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().then(response => {
-      this.users = response;
+        this.users = response;
     });
   }
 
-  handleUserSelected(data) {
+  handleOnClick(data) {
     console.log('El padre recibio', data);
   }
 
