@@ -28,4 +28,8 @@ export class AuthService {
     this.loginObservable.next(false);
   }
 
+  getToken() {
+    return localStorage.getItem(this.item) || '';
+  }
+
 }

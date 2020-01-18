@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
-import { environment } from './../../../environments/environment';
+import { HttpService } from 'src/app/shared/services/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpService:HttpService) { }
 
   getUsers():Promise<any> {
-    const url = environment.apiUrl + environment.apiPath + 'users';
-    return this.httpClient.get(url).toPromise();
+    return this.httpService.get('users').toPromise();
   }
 }
