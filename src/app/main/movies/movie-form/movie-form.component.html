@@ -1,0 +1,8 @@
+<h3>{{data.title}}</h3>
+<p>{{data.description}}</p>
+<strong>Directors:</strong>
+<ul>
+    <li *ngFor="let director of data.directors">
+        {{director}}
+    </li>
+</ul>
