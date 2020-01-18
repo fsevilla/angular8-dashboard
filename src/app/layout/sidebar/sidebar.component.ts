@@ -19,6 +19,11 @@ export class SidebarComponent implements OnInit {
       path: '/'
     },
     {
+      icon: 'people_alt',
+      label: 'Users',
+      path: 'users'
+    },
+    {
       icon: 'video_library',
       label: 'Movies',
       path: 'movies'

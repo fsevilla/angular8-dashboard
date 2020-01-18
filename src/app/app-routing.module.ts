@@ -6,6 +6,7 @@ import { SignupComponent } from './main/signup/signup.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth.guard';
 import { MoviesComponent } from './main/movies/movies.component';
+import { UsersComponent } from './main/users/users.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [UnauthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [UnauthGuard] },
   { path: 'movies', component: MoviesComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
