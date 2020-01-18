@@ -19,16 +19,18 @@ export class SidebarComponent implements OnInit {
       path: '/'
     },
     {
-      icon: 'folder',
-      label: 'Carpetas',
-      path: 'folders'
+      icon: 'video_library',
+      label: 'Movies',
+      path: 'movies'
     }
   ]
 
   constructor(private authService:AuthService) { }
 
   ngOnInit() {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.authService.loginObservable.subscribe(data => {
+      this.isLoggedIn = data;
+    });
   }
 
 }

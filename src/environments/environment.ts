@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://memflix-api.herokuapp.com/'
+  apiUrl: 'https://memflix-api.herokuapp.com/',
+  apiPath: 'api/'
 };
 
 /*

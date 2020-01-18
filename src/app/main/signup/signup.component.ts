@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +14,12 @@ export class SignupComponent implements OnInit {
 
   form:FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(
+    private formBuilder:FormBuilder, 
+    private signupService:SignupService,
+    private router:Router,
+    private snackBar:MatSnackBar
+  ) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -28,7 +37,28 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    console.log('Enviar datos', this.form);
+    if(this.form.valid) {
+      const data = this.form.getRawValue();
+      this.signupService.signup(data)
+        .then(() => {
+          // Mensaje de confirmacion
+          this.snackBar.open('El usuario se ha creado correctamente!', 'Success', {
+            duration: 2000,
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
+          // Enviar a login
+          this.router.navigate(['/login']);
+        })
+        .catch(err => { 
+          this.snackBar.open('Ocurrió un error!', 'Error', {
+            duration: 2000,
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
+         });
+
+    }
   }
 
   hasError(controlName:string, errorType:string) {

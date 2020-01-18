@@ -12,6 +12,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './main/home/home.component';
 import { LoginComponent } from './main/login/login.component';
 import { SignupComponent } from './main/signup/signup.component';
+import { MoviesComponent } from './main/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { SignupComponent } from './main/signup/signup.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { SignupComponent } from './main/signup/signup.component';
     MatCardModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

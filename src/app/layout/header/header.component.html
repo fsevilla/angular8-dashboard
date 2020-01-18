@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
     <span>My App</span>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="logout icon" *ngIf="isLoggedIn">exit_to_app</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="logout icon" *ngIf="isLoggedIn" (click)="logout()">exit_to_app</mat-icon>
 </mat-toolbar>
